@@ -76,6 +76,7 @@
         </style>
     </head>
 <body class="center">
+    <nav>
     <ul class="menu textcenter">
         <li><a href="#uvod">Úvod</a></li>
         <li><a href="#vypracovani">Vypracování</a></li>
@@ -84,13 +85,14 @@
         <li><a href="#xsltransformace">XSL transformace</a></li>
         <li><a href="#vypracoval">Vypracoval</a></li>
     </ul>
-
-    <article id="uvod" class="center">
-        <h2 class="textcenter">Úvod</h2>
-        <p>Projekt řeší problematiku konfigurace domácího routeru. V poseldní době jsem ze zabýval nastavením domácého routeru, proto jsem si vybral toto téma. Vytvořil jsem XML dokument, který obsahuje důležitých základních nastavení klasického domácího routeru. </p>
-        <p>Kromě základních informací, obsahuje soubor informace, podle kterých lze porovnávat hodnotu klubů, například podle rozpočtu, který je rozdílný vzhledem oblasti, velikosti a účastněných soutěží týmu. Navíc soubor obsahuje některé hráče vybraných klubů. Informace o hráčích slouží k porovnání úspěšnosti všech hráčů, kteří jsou v mém XML dokumentu.</p>
-    </article>
-    <article id="vypracovani" class="center">
+    </nav>
+    <main>
+    <section id="uvod" class="center">
+    <header><h2 class="textcenter">Úvod</h2></header>
+        <p>Projekt řeší problematiku konfigurace domácího routeru. V poseldní době jsem ze zabýval nastavením domácého routeru, proto jsem si vybral toto téma. Vytvořil jsem XML dokument, který obsahuje důležité základní nastavení klasického domácího routeru. </p>
+        <p>Kromě základních informací obsahuje také tabulku filtrovaní podle MAC adresy a základní statistické údaje o MAC adresách. Například kolik paketů z danné MAC adresy bylo posláno.</p>
+    </section>
+    <section id="vypracovani" class="center">
         <h2 class="textcenter">Vypracování</h2>
         <p>Při řešení mého projektu jsem využil Sublime Text 3 s volnou licenci.</p>
         <p>Dále tyto webové stránky pro validaci jednotlivých formátů: </p>
@@ -99,8 +101,8 @@
             <li>Nástroj pro XSD validaci <a href="http://www.utilities-online.info/xsdvalidation/">http://www.utilities-online.info/xsdvalidation/</a></li>
             <li>Nástroj pro HTML validaci <a href="https://validator.w3.org">https://validator.w3.org</a></li>
         </ul>
-    </article>
-    <article id="elementy" class="center">
+    </section>
+    <section id="elementy" class="center">
         <h2 class="textcenter">XML - Elementy</h2>
         <table class="center2">
             <tr>
@@ -313,8 +315,8 @@
                 <td>Odeslané pakety na mac adrese</td>
                 <td>Schématické omezení</td>
         </table>
-    </article>
-    <article id="atr" class="center">
+    </section>
+    <section id="atributy" class="center">
         <h2 class="textcenter">XML - Atributy</h2>
         <table class="center2">
             <tr>
@@ -350,8 +352,8 @@
                 <td>Identifikace MAC adresy ve statistice mac adres</td>
             </tr>
         </table>
-    </article>
-    <article id="xsltransformace" class="center">
+    </section>
+    <section id="xsltransformace" class="center">
         <h2 class="textcenter">XSL Transformace</h2>
 			<table class="center2">
 			      <tr>
@@ -423,11 +425,13 @@
 			      <td>false</td>
 			   </tr>
 			</table>
-
-
-        <p>Vyptvořil jsem XSL transforamci do HTML, která využívá data z XML souboru, který je naplněn daty. Transformace vrací dvě tabulky. První tabulka zobrazuje všechny MAC adresy v síti, které mají odeslaných paketů nad 2000. Dale jsou sežany podle počtu odeslaných paketů. První místo je zlatě, druhé stříbrě a třetí bronzově. Druhá tabulka zobrazuje vypis filtr MAC adres. Zeleně jsou obarveny ty, které jsou povoleny v síti. Červeně ty, které jsou zakázany.</p>
-    </article>
-    <article id="vypracoval" class="center">
+        <article>
+        <h2 class="textcenter">Popis XSL transforamce</h2>
+        <p>Vyptvořil jsem XSL transforamci do HTML, která využívá data z XML souboru, který je naplněn daty. Transformace vrací dvě tabulky. První tabulka zobrazuje všechny MAC adresy v síti, které mají odeslaných paketů nad 2000. Dale jsou seřazeny podle počtu odeslaných paketů. První místo je zlatě, druhé stříbrě a třetí bronzově. Druhá tabulka zobrazuje vypis filtr MAC adres. Zeleně jsou obarveny ty, které jsou povoleny v síti. Červeně ty, které jsou zakázany.</p>
+        </article>
+    </section>
+    </main>
+    <footer id="vypracoval" class="center">
         <h2 class="textcenter">Vypracoval</h2>
         <ul>
             <li>Jméno: Vojtěch Dušek (xdusv006)</li>
@@ -435,6 +439,6 @@
             <li>Obor: INFO</li>
             <li>Jedná se o semestrální projekt v rámci předmětu Značkovací jazyky</li>
         </ul>
-    </article>
+    </footer>
 </body>
 </html>
