@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routerConf>
+  <status>
+    <firmwareVersion>Build3.16.9</firmwareVersion>
+    <hardwareVersion>WR841N v11 00000000</hardwareVersion>
+    <routermacAdress>F4:F2:6D:54:6F:0C</routermacAdress>
+    <routerIpaddress>192.168.0.1</routerIpaddress>
+    <subnetmask>255.255.255.0</subnetmask>
+    <wirelessRadio>true</wirelessRadio>
+    <ssid>wifi-domov</ssid>
+    <chanel>2</chanel>
+  </status>
+  <network>
+    <wan>
+      <wanConnection wanType="dynamicIP">
+        <wanIpAddress>0.0.0.0</wanIpAddress>
+        <wanSubnetMask>0.0.0.0</wanSubnetMask>
+        <wanDeafultGateway>0.0.0.0</wanDeafultGateway>
+      </wanConnection>
+      <wanConnection wanType="staticIP">
+        <wanIpAddress>10.200.28.25</wanIpAddress>
+        <wanSubnetMask>255.255.255.0</wanSubnetMask>
+        <wanDeafultGateway>10.200.28.1</wanDeafultGateway>
+      </wanConnection>
+      <wanConnection wanType="L2TP/Russian L2TP">
+        <wanIpAddress>10.10.8.2</wanIpAddress>
+        <wanSubnetMask>255.255.255.248</wanSubnetMask>
+        <wanDeafultGateway>10.10.8.2</wanDeafultGateway>
+      </wanConnection>
+    </wan>
+    <macClone>
+      <wanMacAdrewss>F4:F2:6D:54:6F:0C</wanMacAdrewss>
+    </macClone>
+    <lan lanEnable="true">
+      <lanMacAdress>F4:F2:6D:54:6F:0C</lanMacAdress>
+      <lanIpAdress>192.168.0.1</lanIpAdress>
+      <lanSubnetMask>255.255.255.0</lanSubnetMask>
+    </lan>
+  </network>
+  <wireless>
+    <wirelessSettings>
+      <wirelessNetworkName>wifi-domov</wirelessNetworkName>
+      <region>CZ</region>
+      <mode>11bgnmixed</mode>
+    </wirelessSettings>
+    <wirelessSecurity securityEnable="true">
+      <securityType secType="Disabled">
+        <securityVersion>none</securityVersion>
+        <encryption>none</encryption>
+        <wirelessPassword>none</wirelessPassword>
+        <securityEnable>false</securityEnable>
+      </securityType>
+      <securityType secType="WPA/WPA2 Personal">
+        <securityVersion>Automatic</securityVersion>
+        <encryption>AES</encryption>
+        <wirelessPassword>4309234098234</wirelessPassword>
+        <securityEnable>true</securityEnable>
+      </securityType>
+      <securityType secType="WPA/WPA2 Enterprise">
+        <securityVersion>WPA2</securityVersion>
+        <encryption>Automatic</encryption>
+        <wirelessPassword>AGG_123_1F2_340</wirelessPassword>
+        <securityEnable>false</securityEnable>
+      </securityType>
+      <securityType secType="WEP">
+        <securityVersion>Open System</securityVersion>
+        <encryption>Hexadecimal</encryption>
+        <wirelessPassword>123456</wirelessPassword>
+        <securityEnable>false</securityEnable>
+      </securityType>
+    </wirelessSecurity>
+    <wirelessMacFiltering filtrEnable="true">
+      <macEntry filtrId="1">
+        <macAdress>B8:78:2E:3C:76:53</macAdress>
+        <description>Jakub</description>
+        <status>true</status>
+      </macEntry>
+      <macEntry filtrId="2">
+        <macAdress>AC:29:3A:B5:B9:FD</macAdress>
+        <description>Honza</description>
+        <status>true</status>
+      </macEntry>
+      <macEntry filtrId="3">
+        <macAdress>2C:F0:EE:20:F0:8E</macAdress>
+        <description>Honza</description>
+        <status>true</status>
+      </macEntry>
+      <macEntry filtrId="4">
+        <macAdress>B8:E8:56:24:39:CC</macAdress>
+        <description>Tonda</description>
+        <status>false</status>
+      </macEntry>
+      <macEntry filtrId="5">
+        <macAdress>B8:E8:56:24:39:CC</macAdress>
+        <description>Jana</description>
+        <status>true</status>
+      </macEntry>
+    </wirelessMacFiltering>
+    <wirelessStatistics statisticEnable="true">
+      <statEntry statId="1">
+        <statMacAdress>B8:78:2E:3C:76:53</statMacAdress>
+        <recevedPackets>268563</recevedPackets>
+        <sentPackets>589322</sentPackets>
+      </statEntry>
+      <statEntry statId="2">
+        <statMacAdress>AC:29:3A:B5:B9:FD</statMacAdress>
+        <recevedPackets>60797</recevedPackets>
+        <sentPackets>104550</sentPackets>
+      </statEntry>
+      <statEntry statId="3">
+        <statMacAdress>2C:F0:EE:20:F0:8E</statMacAdress>
+        <recevedPackets>4314</recevedPackets>
+        <sentPackets>2104</sentPackets>
+      </statEntry>
+      <statEntry statId="4">
+        <statMacAdress>B8:E8:56:24:39:CC</statMacAdress>
+        <recevedPackets>0</recevedPackets>
+        <sentPackets>0</sentPackets>
+      </statEntry>
+      <statEntry statId="5">
+        <statMacAdress>B8:E8:56:24:E8:B8</statMacAdress>
+        <recevedPackets>32998</recevedPackets>
+        <sentPackets>320023</sentPackets>
+      </statEntry>
+    </wirelessStatistics>
+  </wireless>
+</routerConf>

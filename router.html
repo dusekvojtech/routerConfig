@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <title>Router Config</title>
+        <style type="text/css">
+            footer {width: 100%}
+            html { 
+                width: 100%;
+                height: 100%;
+                min-width: 1024px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            ul.menu  {
+                list-style-type: none;
+                margin: 0;
+                margin-bottom: 10px;
+                padding: 0;
+                overflow: auto;
+                background-color: white;
+                text-align: center;
+            }
+            .menu li { display:inline-block; }
+            .menu li a {
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            .menu li a:hover { background-color: black;
+                color: white;
+             }
+            h1  { margin: 15px; }
+            h2	{ margin: 15px; }
+            article {
+                text-align: justify;
+                background-color: white;
+                
+            }
+            td { border-bottom: 1px solid black; }
+
+            .textcenter { text-align: center; }
+            .center {
+                margin: auto;
+                width: 80%;
+                border: 1px solid black;
+                padding: 10px;
+                margin-bottom: 5px;
+                background-color: white;
+                color:black;
+            }
+            .center2 {
+                margin: auto;
+                width: 90%;
+                border: 1px solid black;
+                padding: 10px;
+                margin-bottom: 5px;
+            }
+            .gold{
+                background-color: gold;
+            }
+            .silver{
+                background-color: silver;
+            }
+            .bronze{
+                background-color: red;
+            }
+            .red{
+                background-color: red;
+            }
+            .green{
+                background-color: green;
+            }
+        </style>
+    </head>
+<body class="center">
+    <ul class="menu textcenter">
+        <li><a href="#uvod">Úvod</a></li>
+        <li><a href="#vypracovani">Vypracování</a></li>
+        <li><a href="#elementy">Elementy</a></li>
+        <li><a href="#atributy">Atributy</a></li>
+        <li><a href="#xsltransformace">XSL transformace</a></li>
+        <li><a href="#vypracoval">Vypracoval</a></li>
+    </ul>
+
+    <article id="uvod" class="center">
+        <h2 class="textcenter">Úvod</h2>
+        <p>Projekt řeší problematiku konfigurace domácího routeru. V poseldní době jsem ze zabýval nastavením domácého routeru, proto jsem si vybral toto téma. Vytvořil jsem XML dokument, který obsahuje důležitých základních nastavení klasického domácího routeru. </p>
+        <p>Kromě základních informací, obsahuje soubor informace, podle kterých lze porovnávat hodnotu klubů, například podle rozpočtu, který je rozdílný vzhledem oblasti, velikosti a účastněných soutěží týmu. Navíc soubor obsahuje některé hráče vybraných klubů. Informace o hráčích slouží k porovnání úspěšnosti všech hráčů, kteří jsou v mém XML dokumentu.</p>
+    </article>
+    <article id="vypracovani" class="center">
+        <h2 class="textcenter">Vypracování</h2>
+        <p>Při řešení mého projektu jsem využil Sublime Text 3 s volnou licenci.</p>
+        <p>Dále tyto webové stránky pro validaci jednotlivých formátů: </p>
+        <ul>
+            <li>Nástroj pro XSL transformaci <a href="http://www.freeformatter.com/xsl-transformer.html">http://www.freeformatter.com/xsl-transformer.html</a></li>
+            <li>Nástroj pro XSD validaci <a href="http://www.utilities-online.info/xsdvalidation/">http://www.utilities-online.info/xsdvalidation/</a></li>
+            <li>Nástroj pro HTML validaci <a href="https://validator.w3.org">https://validator.w3.org</a></li>
+        </ul>
+    </article>
+    <article id="elementy" class="center">
+        <h2 class="textcenter">XML - Elementy</h2>
+        <table class="center2">
+            <tr>
+                <th>routerConf</th>
+                <th>Obaluje celý config</th>
+                <th>Popis elementu</th>
+            </tr>
+            <tr>
+                <td>status</td>
+                <td>Obaluje část základních informací o routeru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>firmwareVersion</td>
+                <td>Verze firmwaru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>hardwareVersion</td>
+                <td>Verze hardwaru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>routermacAdress</td>
+                <td>Mac adressa routeru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>routerIpaddress</td>
+                <td>IP adresa routeru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>subnetmask</td>
+                <td>Maska podsítě routeru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessRadio</td>
+                <td>Povolení bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>ssid</td>
+                <td>Jmeno bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>chanel</td>
+                <td>Kanál na kterem je bezdrátová síť</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>network</td>
+                <td>Obal pro základní síťová nastavení</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wan</td>
+                <td>Obal pro WAN síť</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wanConnection</td>
+                <td>Obal pro jednotlivé typy WAN připojení</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wanIpAddress</td>
+                <td>WAN IP adresa</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wanSubnetMask</td>
+                <td>Maska WAN</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wanDeafultGateway</td>
+                <td>WAN výchozí brána</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>macClone</td>
+                <td>Obal pro MAC adresu WAN</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wanMacAdrewss</td>
+                <td>WAN MAC adresa</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>lan</td>
+                <td>Obal pro LAN síť</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>lanMacAdress</td>
+                <td>LAN MAC adresa</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>lanIpAdress</td>
+                <td>LAN IP adresa</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>lanSubnetMask</td>
+                <td>LAN maska podsítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wireless</td>
+                <td>Obal pro nastavení bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessSettings</td>
+                <td>Obal 2 pro nastavení bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessNetworkName</td>
+                <td>Jméno bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>region</td>
+                <td>Region bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>mode</td>
+                <td>Režim přenosu bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessSecurity</td>
+                <td>Obal zabezpečení bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>securityType</td>
+                <td>Typ zabezepčení bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>securityVersion</td>
+                <td>Verze zabezpečení</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>encryption</td>
+                <td>Šifrování zabezpečení</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessPassword</td>
+                <td>Heslo bezdrátové sítě</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>securityEnable</td>
+                <td>Vybrání typu zabezpečení</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessMacFiltering</td>
+                <td>Obal pro filtrování Mac adress</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>macEntry</td>
+                <td>Záznam pro Mac adresu</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>macAdress</td>
+                <td>Mac adresa v seznamu filtru</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>status</td>
+                <td>Pokud je filtr pro tuto adresu vypnut nebo zapnut/td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>wirelessStatistics</td>
+                <td>Obal pro statistiku mac adress</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>statEntry</td>
+                <td>Záznam mac adresy</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>statMacAdress</td>
+                <td>Mac adresa ve statistice</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>recevedPackets</td>
+                <td>Příjmuté pakety na mac adrese</td>
+                <td>Schématické omezení</td>
+            </tr>
+            <tr>
+                <td>sentPackets</td>
+                <td>Odeslané pakety na mac adrese</td>
+                <td>Schématické omezení</td>
+        </table>
+    </article>
+    <article id="atr" class="center">
+        <h2 class="textcenter">XML - Atributy</h2>
+        <table class="center2">
+            <tr>
+                <td>wanType</td>
+                <td>Určuje o jaký druh WAN připojení se jedná</td>
+            </tr>
+            <tr>
+                <td>secType</td>
+                <td>Určuje o jaký druh zabezpečení bezdrátové sítě se jedná</td>
+            </tr>
+            <tr>
+                <td>filtrEnable</td>
+                <td>Pro zpřístupnění / zamítnutí filtru mac adres</td>
+            </tr>
+            <tr>
+                <td>statisticEnable</td>
+                <td>Pro spuštění statistik jednotlivých připojení</td>
+            </tr>
+            <tr>
+                <td>lanEnable</td>
+                <td>Povolení lokální sítě</td>
+            </tr>
+            <tr>
+                <td>securityEnable</td>
+                <td>Zapnutí / Vypnutí bezdrátového zabezpečení</td>
+            </tr>
+            <tr>
+                <td>filtrId</td>
+                <td>Identifikace MAC adresy ve filtru mac adres</td>
+            </tr>
+            <tr>
+                <td>statId</td>
+                <td>Identifikace MAC adresy ve statistice mac adres</td>
+            </tr>
+        </table>
+    </article>
+    <article id="xsltransformace" class="center">
+        <h2 class="textcenter">XSL Transformace</h2>
+			<table class="center2">
+			      <tr>
+			      <th>ID</th>
+			      <th>MAC Adress</th>
+			      <th>Receved Packets</th>
+			      <th>Sent Packets</th>
+			   </tr>
+			   <tr class="gold">
+			      <td>1</td>
+			      <td>B8:78:2E:3C:76:53</td>
+			      <td>268563</td>
+			      <td>589322</td>
+			   </tr>
+			   <tr class="silver">
+			      <td>5</td>
+			      <td>B8:E8:56:24:E8:B8</td>
+			      <td>32998</td>
+			      <td>320023</td>
+			   </tr>
+			   <tr class="bronze">
+			      <td>3</td>
+			      <td>2C:F0:EE:20:F0:8E</td>
+			      <td>4314</td>
+			      <td>2104</td>
+			   </tr>
+			   <tr>
+			      <td>2</td>
+			      <td>AC:29:3A:B5:B9:FD</td>
+			      <td>60797</td>
+			      <td>104550</td>
+			   </tr>
+			</table>
+			<table class="center2">
+			      <tr>
+			      <th>ID</th>
+			      <th>MAC Adress</th>
+			      <th>Desription</th>
+			      <th>Enable</th>
+			   </tr>
+			   <tr class="green">
+			      <td>1</td>
+			      <td>B8:78:2E:3C:76:53</td>
+			      <td>Jakub</td>
+			      <td>true</td>
+			   </tr>
+			   <tr class="green">
+			      <td>2</td>
+			      <td>AC:29:3A:B5:B9:FD</td>
+			      <td>Honza</td>
+			      <td>true</td>
+			   </tr>
+			   <tr class="green">
+			      <td>3</td>
+			      <td>2C:F0:EE:20:F0:8E</td>
+			      <td>Honza</td>
+			      <td>true</td>
+			   </tr>
+			   <tr class="green">
+			      <td>5</td>
+			      <td>B8:E8:56:24:39:CC</td>
+			      <td>Jana</td>
+			      <td>true</td>
+			   </tr>
+			   <tr class="red">
+			      <td>4</td>
+			      <td>B8:E8:56:24:39:CC</td>
+			      <td>Tonda</td>
+			      <td>false</td>
+			   </tr>
+			</table>
+
+
+        <p>Vyptvořil jsem XSL transforamci do HTML, která využívá data z XML souboru, který je naplněn daty. Transformace vrací dvě tabulky. První tabulka zobrazuje všechny MAC adresy v síti, které mají odeslaných paketů nad 2000. Dale jsou sežany podle počtu odeslaných paketů. První místo je zlatě, druhé stříbrě a třetí bronzově. Druhá tabulka zobrazuje vypis filtr MAC adres. Zeleně jsou obarveny ty, které jsou povoleny v síti. Červeně ty, které jsou zakázany.</p>
+    </article>
+    <article id="vypracoval" class="center">
+        <h2 class="textcenter">Vypracoval</h2>
+        <ul>
+            <li>Jméno: Vojtěch Dušek (xdusv006)</li>
+            <li>Ročník: 2. ročník</li>
+            <li>Obor: INFO</li>
+            <li>Jedná se o semestrální projekt v rámci předmětu Značkovací jazyky</li>
+        </ul>
+    </article>
+</body>
+</html>

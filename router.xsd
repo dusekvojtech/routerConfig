@@ -1,0 +1,164 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="routerConf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="status">    
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="firmwareVersion"/>
+              <xs:element type="xs:string" name="hardwareVersion"/>
+              <xs:element type="macAdress" name="routermacAdress"/>
+              <xs:element type="ipAdress" name="routerIpaddress"/>
+              <xs:element type="subnetMask" name="subnetmask"/>
+              <xs:element type="enable" name="wirelessRadio"/>
+              <xs:element type="xs:string" name="ssid"/>
+              <xs:element type="xs:integer" name="chanel"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="network">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="wan">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="wanConnection" maxOccurs="unbounded" minOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="ipAdress" name="wanIpAddress"/>
+                          <xs:element type="subnetMask" name="wanSubnetMask"/>
+                          <xs:element type="ipAdress" name="wanDeafultGateway"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="wanType" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="macClone">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="macAdress" name="wanMacAdrewss"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="lan">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="macAdress" name="lanMacAdress"/>
+                    <xs:element type="ipAdress" name="lanIpAdress"/>
+                    <xs:element type="subnetMask" name="lanSubnetMask"/>
+                  </xs:sequence>
+                  <xs:attribute type="enable" name="lanEnable" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="wireless">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="wirelessSettings">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="wirelessNetworkName"/>
+                    <xs:element type="country" name="region"/>
+                    <xs:element type="xs:string" name="mode"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="wirelessSecurity" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="securityType" maxOccurs="unbounded" minOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="securityVersion"/>
+                          <xs:element type="xs:string" name="encryption"/>
+                          <xs:element type="xs:string" name="wirelessPassword"/>
+                          <xs:element type="enable" name="securityEnable"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="secType" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="enable" name="securityEnable" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="wirelessMacFiltering" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="macEntry" maxOccurs="unbounded" minOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="macAdress" name="macAdress"/>
+                          <xs:element type="xs:string" name="description"/>
+                          <xs:element type="enable" name="status"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="filtrId" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="enable" name="filtrEnable" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="wirelessStatistics" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="statEntry" maxOccurs="unbounded" minOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="macAdress" name="statMacAdress"/>
+                          <xs:element type="data" name="recevedPackets"/>
+                          <xs:element type="data" name="sentPackets"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="statId" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="enable" name="statisticEnable" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- Nastavení omezení -->
+  <xs:simpleType name="enable">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="false"/>
+    </xs:restriction>
+  </xs:simpleType> 
+  <xs:simpleType name="macAdress"> <!-- Omezení nastavení emailových adres -->
+    <xs:restriction base="xs:string">
+       <xs:pattern value="((\d|([a-f]|[A-F])){2}:){5}(\d|([a-f]|[A-F])){2}"/> <!-- Regex pro rozpoznání MAC adresy -->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ipAdress"> <!-- Omezení nastavení emailových adres -->
+    <xs:restriction base="xs:string">
+       <xs:pattern value="\d\d?\d?\.\d\d?\d?\.\d\d?\d?\.\d\d?\d?"/> <!-- Regex pro rozpoznání IP adresy -->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="subnetMask"> <!-- Omezení nastavení emailových adres -->
+    <xs:restriction base="xs:string">
+       <xs:pattern value="\d\d?\d?\.\d\d?\d?\.\d\d?\d?\.\d\d?\d?"/> <!-- Regex pro rozpoznání masky podsítě -->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="country"> <!-- Omezení nastavení jazyku -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CZ"/>
+      <xs:enumeration value="EN"/>
+      <xs:enumeration value="SK"/>
+      <xs:enumeration value="US"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="data"> <!-- Omezení nastavení rozsahu dat -->
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100000000"/>
+    </xs:restriction>
+  </xs:simpleType> 
+</xs:schema>
